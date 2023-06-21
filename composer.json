@@ -2,7 +2,7 @@
   "name": "cavalheri/active-record",
   "autoload": {
     "psr-4": {
-      "app\\": "app/"
+      "app\\": "app"
     }
   },
   "authors": [
