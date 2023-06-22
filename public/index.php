@@ -1,13 +1,12 @@
 <?php
 require '../vendor/autoload.php';
 
-use app\database\activerecord\Find;
+use app\database\activerecord\Update;
 use app\database\models\User;
 
 $user = new User;
 
 $user->firstName = 'Lucas';
-$user->lastName = 'Cavalheri';
-$user->id = 1;
+$user->lastName = 'Carvalho Cavalheri';
 
-echo $user->execute(new Find);
+$user->execute(new Update(field: 'id', value: 1));

@@ -9,7 +9,7 @@ class Connection
 {
     private static $pdo = null;
 
-    public static function connect()
+    public static function connect(): PDO
     {
         try {
             if (!static::$pdo) {
