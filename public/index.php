@@ -1,12 +1,13 @@
 <?php
 require '../vendor/autoload.php';
 
+use app\database\activerecord\Insert;
 use app\database\activerecord\Update;
 use app\database\models\User;
 
 $user = new User;
 
-$user->firstName = 'Lucas';
+$user->firstName = 'Mel';
 $user->lastName = 'Carvalho Cavalheri';
 
-$user->execute(new Update(field: 'id', value: 1));
+echo $user->execute(new Insert);
