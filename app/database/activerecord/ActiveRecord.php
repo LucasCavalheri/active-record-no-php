@@ -40,8 +40,8 @@ abstract class ActiveRecord implements ActiveRecordInterface
         return $this->attributes;
     }
 
-    public function update(UpdateInterface $updateInterface): bool
+    public function update(UpdateInterface $updateInterface)
     {
-        return $updateInterface->update();
+        return $updateInterface->update($this);
     }
 }
