@@ -10,7 +10,6 @@ class Insert implements ActiveRecordExecuteInterface
 {
     public function execute(ActiveRecordInterface $activeRecordInterface): bool
     {
-        // "INSERT INTO users (firstName, lastName) VALUES (:firstName, :lastName)"
         $query = $this->createQuery($activeRecordInterface);
 
         $connection = Connection::connect();
