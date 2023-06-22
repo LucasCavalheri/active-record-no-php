@@ -2,9 +2,11 @@
 
 namespace app\database\activerecord;
 
+use app\database\interfaces\ActiveRecordInterface;
+use app\database\interfaces\UpdateInterface;
 use ReflectionClass;
 
-abstract class ActiveRecord
+abstract class ActiveRecord implements ActiveRecordInterface
 {
     protected $table = null;
 
@@ -18,6 +20,16 @@ abstract class ActiveRecord
         }
     }
 
+    public function __set(string $attributes, string $value): void
+    {
+        $this->attributes[$attributes] = $value;
+    }
+
+    public function __get(string $attributes): string
+    {
+        return $this->attributes[$attributes];
+    }
+
     public function getTable(): string
     {
         return $this->table;
@@ -28,13 +40,8 @@ abstract class ActiveRecord
         return $this->attributes;
     }
 
-    public function __set(string $attributes, string $value): void
+    public function update(UpdateInterface $updateInterface): bool
     {
-        $this->attributes[$attributes] = $value;
-    }
-
-    public function __get(string $attributes): string
-    {
-        return $this->attributes[$attributes];
+        return $updateInterface->update();
     }
 }
